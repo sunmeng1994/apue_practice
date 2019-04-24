@@ -1,0 +1,6 @@
+before fork
+i=0,global=1
+pid:715,ppid:714,uid:0,euid:0,gid:0,egid:0
+before fork
+i=715,global=999
+pid:714,ppid:25477,uid:0,euid:0,gid:0,egid:0
