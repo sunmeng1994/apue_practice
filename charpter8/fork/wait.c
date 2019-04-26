@@ -27,6 +27,10 @@ int main()
     else if(pid==0)
 	exit(7);
     
+    if(wait(&status)!=pid)
+	err_sys("wait error");
+    pr_exit(status);
+    
     //产生一个abort结束的子进程
     pid=fork();
     if(pid<0)
