@@ -1,12 +1,11 @@
 #include<pthread.h>
-#include<iostream>
 #include<unistd.h>
-using namespace std;
+#include<stdio.h>
 void printtid(const char*s)
 {
     pid_t pid=getpid();
     pthread_t tid=pthread_self();
-    cout<<s<<"pid:"<<pid<<"tid:"<<tid<<endl;
+    printf("%s,pid %lu,tid %lu,(0x%lx)\n",s,pid,tid,tid);
 }
 void*threadFunc(void*args)
 {
@@ -18,7 +17,7 @@ int main()
     pthread_t threadId;
     int err=pthread_create(&threadId,NULL,threadFunc,NULL);
     if(err!=0)
-	cout<<"create thread failed"<<endl;
+	printf("create thread failed");
     printtid("main thread:");
     sleep(1);
     return 0;
